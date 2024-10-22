@@ -1767,7 +1767,7 @@ func_ptr f = [](int a) {
 f(1314);
 ```
 
-![image-20241004223930038](/home/jack/.config/Typora/typora-user-images/image-20241004223930038.png)
+![image-20241004223930038](./typora-user-images/image-20241004223930038.png)
 
 
 
@@ -1860,11 +1860,11 @@ os=Linux
 
 ### 2. Conan库管理
 
-![image-20241008211842773](/home/jack/.config/Typora/typora-user-images/image-20241008211842773.png)
+![image-20241008211842773](./typora-user-images/image-20241008211842773.png)
 
 包保存的位置举例：
 
-![image-20241008211939856](/home/jack/.config/Typora/typora-user-images/image-20241008211939856.png)
+![image-20241008211939856](./typora-user-images/image-20241008211939856.png)
 
 选择包的版本时，你可以搜索已经存在的包，看看它们是否已经存在于某个远程仓库中：
 

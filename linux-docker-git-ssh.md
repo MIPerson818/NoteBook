@@ -585,15 +585,15 @@ ssh user@XJTU_MIP  # 使用目标主机的用户名
 
 2、点击远程资源管理器选项卡，选择远程（隧道/SSH）类别。
 
-![image-20241008121802387](/home/jack/.config/Typora/typora-user-images/image-20241008121802387.png)
+![image-20241008121802387](./typora-user-images/image-20241008121802387.png)
 
 3、点击SSH右边的齿轮案件，在中间上部分弹出的配置文件中点击第一个....config。
 
-![image-20241008121917066](/home/jack/.config/Typora/typora-user-images/image-20241008121917066.png)
+![image-20241008121917066](./typora-user-images/image-20241008121917066.png)
 
 4、在点进的config文件中输入以下内容。
 
-![image-20241008122030708](/home/jack/.config/Typora/typora-user-images/image-20241008122030708.png)
+![image-20241008122030708](./typora-user-images/image-20241008122030708.png)
 
 - Host是服务器主机的用户名
 
