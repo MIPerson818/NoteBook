@@ -89,6 +89,57 @@
    - 同时支持对文件的读写操作。
    - 可用于既可以读取又可以写入的文件。
 
+
+
+#### 4.  #include <sstream>
+
+acm格式下输入输出流规范使用
+
+```cpp
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    stringstream input_stream;
+    stringstream output_stream;
+    string line;
+    // 将每一行数据写入输入流
+    while (getline(cin, line)) {
+        input_stream << line << '\n';
+    }
+
+    int rows, cols;
+    input_stream >> rows >> cols;  // 读取第一行的两个整数
+
+    // 创建一个二维数组（向量）
+    vector<vector<int>> matrix(rows, vector<int>(cols));
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            input_stream >> matrix[i][j];
+        }
+    }
+
+    // 输出读取的数据（可选）(实际这里是作为答案输出流)
+    output_stream << "读取的矩阵为：\n";
+    for (const auto& row : matrix) {
+        for (const auto& value : row) {
+            output_stream << value << " ";
+        }
+        output_stream << "\n";
+    }
+    // 打印输出流内容
+    cout << output_stream.str();
+    return 0;
+    
+}
+```
+
+
+
 ### 一、C++基础
 
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/8765e333fb5038e494fdde7fbe94cc89.jpeg#pic_center)C++入门基础：https://blog.csdn.net/chenlong_cxy/article/details/116990901
