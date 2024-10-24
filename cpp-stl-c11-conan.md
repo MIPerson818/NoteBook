@@ -1303,8 +1303,12 @@ int main() {
 
 
 #### 3.7、lower_bound()
-前提是有序的情况下，lower_bound 返回指向第一个值不小于 val 的位置，也就是返回第一个**大于等于**val值的位置。（通过二分查找）。
-使用自定义函数：找到第一个使比较函数返回 false 的位置。
+前提是有序的情况下，lower_bound 返回指向第一个值不小于 val 的位置，也就是返回第一个**大于等于**val值的位置。（通过二分查找）。使用自定义函数：找到第一个使比较函数返回 false 的位置。
+
+- 如果找到了与给定值相等的元素，返回该元素的迭代器。
+- 如果没有找到相等的元素，它将返回第一个大于给定值的元素的迭代器。
+- 如果给定值大于容器中的所有元素，返回指向容器末尾的迭代器（即 `container.end()`）。
+
 ```cpp
 template <class ForwardIterator, class T, class Compare>
 ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last, const T& val, Compare comp);
@@ -1317,6 +1321,10 @@ ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last, const 
 #### 3.8、upper_bound()
 用法和上面类似。只是把lower_bound的 【大于等于】 换成 【大于】 。仿函数等等全是相同的用法。
 使用自定义函数：找到第一个使比较函数返回 true 的位置。
+
+- 如果找到了大于给定值的元素，返回该元素的迭代器。
+- 如果没有找到大于给定值的元素（即给定值大于或等于容器中的所有元素），返回指向容器末尾的迭代器（即 `container.end()`）
+
 这两个函数是二分法返回迭代器，binary_search()是二分法返回bool值。
 
 # C++11特性

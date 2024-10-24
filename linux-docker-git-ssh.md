@@ -89,6 +89,7 @@ docker tag <elder-image-name> <new-image-name>
 
 ```bash
 docker run -it \
+	--name pytorch \
     --gpus all \
     --ipc=host  (或者--shm-size=2GB) \
     --device=/dev/video0 \
@@ -160,18 +161,11 @@ docker load -i my_image.tar
 
 https://hub.docker.com/
 
-### 1. 登录 Docker Hub
-
-你需要先确保已经登录到 Docker Hub 或其他镜像仓库。使用以下命令登录：
+### 1. 登录 / 退出 Docker Hub
 
 ```shell
-docker login
-```
-
-退出 docker hub 可以使用以下命令：
-
-```
-docker logout
+docker login  # 登录 Docker Hub
+docker logout  # 退出 docker hub 
 ```
 
 ### 2. 正确命名镜像（包括用户名）
@@ -182,24 +176,12 @@ docker logout
 docker tag app:v1 myusername/app:v1
 ```
 
-### 3. 推送镜像
-
-确保镜像名称和版本正确后，执行推送命令：
+### 3. 推送 / 拉取镜像
 
 ```bash
-docker push myusername/myapp:v1
-```
-
-### 4.拉取镜像
-
-```
+docker push myusername/myapp:v1   # 确保镜像名称和版本正确后，执行推送命令
 docker search ubuntu
-```
-
-使用 docker pull 将官方 ubuntu 镜像下载到本地：
-
-```
-docker pull ubuntu 
+docker pull ubuntu  # 拉取镜像,将官方 ubuntu 镜像下载到本地
 ```
 
 
@@ -328,9 +310,10 @@ docker build --build-arg APP_ENV=development -t my-dev-image .
 
 
 
-
+## 7、创建容器修改地
 
 docker run -it \
+    --name faa7264cc3b5 \
     --gpus all \
     --ipc=host \
     --device=/dev/video0 \
@@ -343,8 +326,7 @@ docker run -it \
     -v $XAUTHORITY:$XAUTHORITY \
     -v /home/jack/workspace:/home/workspace \
     -v /home/jack/repository:/home/repository \
-    -v /home/jack/conan2:/root/.conan2 \
-    miperson/cpp_ALL:V1
+	faa7264cc3b5
      
 
 
