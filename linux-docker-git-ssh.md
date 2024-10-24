@@ -40,6 +40,9 @@ watch -n 1 nvidia-smi  # 定时刷新这个信息
 ```
 
 ```
+YoLo的Darknet框架：
+.cfg 和 .weights 文件，一个是描述模型结构的配置文件（通常是 .cfg 文件），另一个是包含权重的二进制文件（通常是 .weights 文件）。
+
 PyTorch 框架：
 .pt 文件：PyTorch 模型文件，包含了 PyTorch 框架中的模型结构和权重。
 
