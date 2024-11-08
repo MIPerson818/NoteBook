@@ -344,6 +344,33 @@ docker run -it \
 
 ![image-20210821201040414](/home/jack/文档/NoteBook/typora-user-images/image-20210821201040414.png)
 
+### Git 使用前的配置命令
+
+在使用前告诉 git 你是谁：
+
+1. 第一次使用 git，配置用户信息
+
+   1. 配置用户名：`git config --global user.name "your name"`;
+   2. 配置用户邮箱：`git config --global user.email "youremail@github.com"`;
+
+2. > 查询配置信息
+
+   1. 列出当前配置：`git config --list`;
+   2. 列出 repository 配置：`git config --local --list`;
+   3. 列出全局配置：`git config --global --list`;
+   4. 列出系统配置：`git config --system --list`;
+
+3. > 其他配置
+
+   1. 配置解决冲突时使用哪种差异分析工具，比如要使用 vimdiff：`git config --global merge.tool vimdiff`;
+   2. 配置 git 命令输出为彩色的：`git config --global color.ui auto`;
+   3. 配置 git 使用的文本编辑器：`git config --global core.editor vi`;
+
+4. > 注：
+
+   1. 更改-->重复上述命令
+   2. 也可直接修改 `C:\Users\用户\.gitconfig`
+
 ### 1. 初始化和克隆仓库
 
 ```bash
@@ -370,7 +397,9 @@ git add .    		 # 添加所有更改
 ```
 
 ```bash
-git commit -m "日志内容"  # 提交更改
+git commit -m "日志内容"     # 提交更改
+git commit -a -m "日志内容"  # 将所有已经使用 git 管理过的文件暂存后一并提交
+git commit --amend 	        # 撤销上一次提交
 ```
 
 ```bash
