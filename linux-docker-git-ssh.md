@@ -344,7 +344,7 @@ docker run -it \
 
 ![image-20210821201040414](/home/jack/文档/NoteBook/typora-user-images/image-20210821201040414.png)
 
-### Git 使用前的配置命令
+### 1.Git 使用前的配置命令
 
 在使用前告诉 git 你是谁：
 
@@ -371,25 +371,25 @@ docker run -it \
    1. 更改-->重复上述命令
    2. 也可直接修改 `C:\Users\用户\.gitconfig`
 
-### 1. 初始化和克隆仓库
+### 2. 初始化和克隆仓库
 
 ```bash
 git init  # 创建新的 Git 仓库
 git clone <repository-url>  # 克隆远程仓库
 ```
 
-### 2. 查看状态和历史
+### 3. 查看状态和历史
 
 ```bash
 git status  	   # 查看当前状态
 git diff		   # 查看当前工作目录和暂存区之间的差异
 git diff -cached   # 查看暂存区和最近一次提交之间的差异
-git log			   # 查看提交历史
+git log			   # 查看提交历史，将显示每个提交的哈希值、作者、日期和提交信息
 git log --oneline  # 查看简洁历史（单行显示）
 git log --graph -- pretty=oneline # 查看带有冲突解决的日志
 ```
 
-### 3. Git三板斧——添加、提交、拉取和推送 
+### 4. Git三板斧——添加、提交、拉取和推送 
 
 ```bash
 git add <file-name>  # 添加文件到暂存区
@@ -399,7 +399,7 @@ git add .    		 # 添加所有更改
 ```bash
 git commit -m "日志内容"     # 提交更改
 git commit -a -m "日志内容"  # 将所有已经使用 git 管理过的文件暂存后一并提交
-git commit --amend 	        # 撤销上一次提交
+git commit --amend 	        # 修改最近一次的提交，可以将新的更改和以前的提交合并为一个新的提交
 ```
 
 ```bash
@@ -407,31 +407,44 @@ git pull  # 从远程仓库拉取最新更改，相当于  git fetch origin + gi
 git push origin <branch-name>  # 将本地更改推送到远程仓库
 ```
 
+### 5.版本管理 
+
+```bash
+git checkout <commit-hash>  # 检出特定的提交
+git checkout -- <file-path> # 恢复文件到某个提交的状态
+git checkout <commit-hash> -- <file-path>  # 将文件恢复到工作目录的最新状态
+```
+
+
+
 ## 二、分支
 
-#### 分支细分
+#### 1.分支细分
 
 1. 主分支（master）：第一次向 git 仓库提交更新记录时自动产生的一个分支。
 2. 开发分支（develop）：作为开发的分支，基于 master 分支创建。
 3. 功能分支（feature）：作为开发具体功能的分支基于开发分支创建。
 
-### 4.分支操作
+### 2.分支操作
 
 ```bash
-git branch  ( -r )     # 查看分支
-git branch <name>      # 创建分支
-git breach -d <name>   # 删除分支（分支合并后才允许被删除）（-D 大写强制删除）
+git branch  ( -r 远程 -a所有 本地+远程)     # 查看分支
+git branch <branch-name>        # 创建分支
+git branch -m <new-branch-name> # 重命名分支
+git breach -d <branch-name>     # 删除分支（分支合并后才允许被删除）（-D 大写强制删除）
 
-git checkout <name>    # 切换分支
-git checkout -b <name> # 创建+切换分支
-
-git merge <name>       # 合并某分支到当前分支
+git checkout <branch-name>    # 切换分支
+git checkout -b <branch-name> # 创建+切换分支
+git checkout <commit-hash>  # 检出特定的提交
+git checkout -- <file-path> # 恢复文件到某个提交的状态
+git checkout <commit-hash> -- <file-path>  # 将文件恢复到工作目录的最新状态
 ```
 
-### 5. 合并和变基
+### 3. 合并和变基
 
 ```bash
 git merge <branch-name>  // 合并分支
+git merge branch1 branch2    # 合并多个分支
 git rebase <branch-name> // 变基分支
 ```
 
@@ -440,7 +453,7 @@ git add <file-with-conflict>   # 解决冲突：在合并或变基时，可能�
 git commit  # 完成合并
 ```
 
-### 6. 查看和管理远程仓库
+### 4. 查看和管理远程仓库
 
 ```bash
 git remote -v  # 查看远程仓库信息
@@ -448,19 +461,21 @@ git remote add <name> <repository-url>  # 添加远程仓库
 git remote remove <name>  # 删除远程仓库
 ```
 
-### 7. 标签管理
+### 5. 标签管理
 
 ```bash
-git tag <tag-name>  // 创建标签
-git tag //查看标签
-git push origin <tag-name>  //推送标签到远程
+git tag             # 查看标签
+git tag <tag-name>  # 创建标签
+git tag -a <tag-name> -m "Tag message"  # 附注标签： 包含标签的元数据（如作者、日期和标签说明）
+
+git push origin <tag-name>  # 推送标签到远程
+git push origin --tags      # 要推送所有标签
 ```
 
-### 8. 其他常用命令
+### 6. 其他常用命令
 
 ```bash
 git reset <file-name>   # 撤销暂存区文件
-git checkout -- <file-name>  # 撤销未提交的更改
 git rm <name> # 删除仓库中的文件
 git .git rm   # 删除本地仓库 
 git help <command>  # 查看帮助
