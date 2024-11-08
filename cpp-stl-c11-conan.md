@@ -324,18 +324,86 @@ for(vector<int>::iterator iter=v.begin();iter!=v.end();iter++)
 
 ## STL-Container
 
-### 1. **`array`** (C风格数组)
+### **`1. std::string`** (字符串)
 
-C++中的原生数组，大小固定，无法动态调整。
+- `std::string` 是一个动态字符串类，支持高效的字符串拼接、比较和查找，但在随机存取元素时效率一般。
+- `std::string` 支持随机存取元素，可以使用 `[]` 操作符和 `at(pos)` 函数来访问字符。
 
-- **插入**：不支持直接插入，只能修改现有元素。
-- **删除**：不支持删除操作。
-- **访问**：O(1) 时间复杂度，直接通过下标访问。
-- **应用场景**：适用于大小固定的情况。
+#### 1.1、`std::string`对象的构造
 
+```cpp
+std::string str;                        // 定义一个空字符串。
+std::string strFromChar("Hello");      // 从字符数组构造字符串。
+std::string strFromCopy(strFromChar);  // 拷贝构造函数。
+std::string strN(10, 'A');              // 构造出包含10个'A'字符的字符串。
+std::string strPart("Hello World", 5);  // 从字符串“Hello World”中复制前5个字符。
 ```
-int arr[10]; // 创建一个大小为10的int数组
+
+**`std::string`的赋值**
+
+```cpp
+str.assign("New String");                // 将新的字符串赋值给str。
+str.assign(5, 'B');                      // 将5个'B'赋值给str。
+str = "Another String";                  // 使用赋值操作符赋值。
+str.swap(otherStr);                      // 将otherStr与str的内容互换。
 ```
+
+#### 1.2、`std::string`的大小与访问
+
+```cpp
+str.size();                    // 返回字符串的长度。
+str.length();                 // 返回字符串的长度，与size()相同。
+str.empty();                  // 判断字符串是否为空。
+str.resize(num);             // 调整字符串大小，增加或减少字符。
+str.resize(num, 'x');        // 调整字符串大小，并用'x'填充多余部分。
+
+// 字符串支持随机存取
+char firstChar = str[0];     // 使用[]操作符访问字符。
+char secondChar = str.at(1); // 使用at()函数访问字符，越界时抛出异常。
+```
+
+#### 1.3、`std::string`的插入与删除
+
+```cpp
+str.push_back('!');             // 在字符串尾部添加一个字符。
+str.pop_back();                 // 删除字符串末尾的字符。
+str.insert(5, " Inserted ");    // 在指定位置插入字符串。
+str.erase(0, 5);                // 删除从0开始的5个字符。
+str.clear();                    // 清空字符串，将其变为一个空字符串。
+```
+
+#### 1.4、`std::string`的查找和替换
+
+```cpp
+size_t pos = str.find("find"); // 查找子串的位置，未找到返回string::npos。
+size_t lastPos = str.rfind("find"); // 从后往前查找子串的位置。
+str.replace(0, 5, "Replaced"); // 用新字符串替换指定位置的字符。
+```
+
+#### 1.5、`std::string`的连接与比较
+
+```cpp
+std::string str1 = "Hello";
+std::string str2 = "World";
+std::string result = str1 + " " + str2; // 使用+操作符连接字符串。
+bool isEqual = (str1 == str2);           // 使用==比较字符串。
+int cmpResult = str1.compare(str2);      // compare函数比较两个字符串。
+```
+
+#### 1.6、`std::string`的迭代器
+
+- `std::string` 也支持迭代器，能够使用前向迭代器对字符进行遍历。
+
+```cpp
+for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
+    // 处理每个字符
+    std::cout << *it;
+}
+```
+
+#### 1.7、**应用场景**
+
+`std::string` 适用于需要频繁操作文本的场景，如文本处理、字符串拼接、文件读取等。它在内存管理和操作便利性上都优于传统的字符数组。特别是在需要执行大量字符串操作时，它提供了更安全且便捷的 API。
 
 ### 2. **`std::vector`** (动态数组)
 
@@ -780,6 +848,19 @@ customPQ.push(10);
 customPQ.push(5);
 customPQ.push(20);
 std::cout << customPQ.top(); // 输出最小的元素 5
+```
+
+#### A*中自动排列队列的应用：
+
+```cpp
+struct Knight{
+    int x,y;    // 骑士的位置
+    int g,h,f;  // 当前路径消耗（g），预估消耗（h），和总消耗（f）
+    bool operator < (const Knight & k) const{  // 重载运算符， 从小到大排序
+     return k.f < f;
+    }
+};
+priority_queue<Knight> que; // 队列根据重载规则自动排列：总消耗少的在前
 ```
 
 

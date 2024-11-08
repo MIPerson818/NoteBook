@@ -95,6 +95,7 @@ docker run -it \
 	--name pytorch \
     --gpus all \
     --ipc=host  (或者--shm-size=2GB) \
+    --network host \
     --device=/dev/video0 \
     --device=/dev/video1 \
     --device=/dev/video2 \
@@ -112,7 +113,7 @@ docker run -it \
 
 --gpus all  //宿主机下载好NVIDIA Container Toolkit后，容器使用宿主机GPU
 --ipc=host  (或者--shm-size=2GB) 运行容器的默认共享内存host是与宿主机共享，后者是指定大小
---device=/dev/video0  //挂载宿主机外设
+--device=/dev/video0  //挂载宿主机外设      --network host // 使用宿主机网络
 
 `-e` 选项用于设置环境变量：
 
@@ -341,6 +342,8 @@ docker run -it \
 提交push：工作目录 ——> 暂存区 ——> 本地仓库 ——> 远程仓库：文件必须一步一步的提交
 拉取pull：远程仓库 ——> 本地仓库 ——> 暂存区 ——> 工作目录：文件可以依次“检出”，也可以直接从远程仓库“检出”到工作目录
 
+![image-20210821201040414](/home/jack/文档/NoteBook/typora-user-images/image-20210821201040414.png)
+
 ### 1. 初始化和克隆仓库
 
 ```bash
@@ -352,6 +355,8 @@ git clone <repository-url>  # 克隆远程仓库
 
 ```bash
 git status  	   # 查看当前状态
+git diff		   # 查看当前工作目录和暂存区之间的差异
+git diff -cached   # 查看暂存区和最近一次提交之间的差异
 git log			   # 查看提交历史
 git log --oneline  # 查看简洁历史（单行显示）
 git log --graph -- pretty=oneline # 查看带有冲突解决的日志
@@ -373,15 +378,25 @@ git pull  # 从远程仓库拉取最新更改，相当于  git fetch origin + gi
 git push origin <branch-name>  # 将本地更改推送到远程仓库
 ```
 
+## 二、分支
+
+#### 分支细分
+
+1. 主分支（master）：第一次向 git 仓库提交更新记录时自动产生的一个分支。
+2. 开发分支（develop）：作为开发的分支，基于 master 分支创建。
+3. 功能分支（feature）：作为开发具体功能的分支基于开发分支创建。
+
 ### 4.分支操作
 
-```
-查看分支：git branch  ( -r )
-创建分支：git branch <name>
-切换分支：git checkout <name>
-创建+切换分支：git checkout -b <name>
-并某分支到当前分支：git merge <name>
-除分支：git breach -d <name>
+```bash
+git branch  ( -r )     # 查看分支
+git branch <name>      # 创建分支
+git breach -d <name>   # 删除分支（分支合并后才允许被删除）（-D 大写强制删除）
+
+git checkout <name>    # 切换分支
+git checkout -b <name> # 创建+切换分支
+
+git merge <name>       # 合并某分支到当前分支
 ```
 
 ### 5. 合并和变基
@@ -422,7 +437,7 @@ git .git rm   # 删除本地仓库
 git help <command>  # 查看帮助
 ```
 
-## 二、远程github
+## 三、远程github
 
 ### 1、fetch与push
 
