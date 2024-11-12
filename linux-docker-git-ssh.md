@@ -22,7 +22,7 @@ win下：
 
 环境变量相关：
 
-```
+```bash
 /etc/profile：此文件为系统的每个用户设置环境信息，当用户第一次登录时，该文件被执行，并从/etc/profile.d目录的配置文件中搜集shell的设置。
 /etc/bashrc：为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取。
 ~/.bash_profile：每个用户都可使用该文件输入专用于自己使用的shell信息，当用户登录时，该文件仅仅执行一次!默认情况下，他设置一些环境变量，执行用户的.bashrc文件。是交互式login 方式进入 bash 运行的。
@@ -35,6 +35,8 @@ https://www.cnblogs.com/renyz/p/11351934.html
 深度学习部署相关：
 
 ```bash
+# https://zhuanlan.zhihu.com/p/91334380 讲解
+nvcc --version  # cuda版本
 nvidia-smi  # 显示显卡信息
 watch -n 1 nvidia-smi  # 定时刷新这个信息
 ```
@@ -142,7 +144,7 @@ docker run -it --name <container_name> <image_name>  //先生成容器
 docker exec -it <container_name> /bin/bash    // 终端打开运行的容器（若并未运行则先start运行）
 
 //启动一个 Docker 容器，在退出容器后自动删除它
-docker run --rm -it <镜像名> /bin/bash
+docker run -it --rm <镜像名> /bin/bash
 ```
 
 ###          保存和导入容器/镜像
@@ -317,7 +319,7 @@ docker build --build-arg APP_ENV=development -t my-dev-image .
 ## 7、创建容器修改地
 
 docker run -it \
-    --name faa7264cc3b5 \
+    --name conda-torch \
     --gpus all \
     --ipc=host \
     --device=/dev/video0 \
@@ -330,7 +332,7 @@ docker run -it \
     -v $XAUTHORITY:$XAUTHORITY \
     -v /home/jack/workspace:/home/workspace \
     -v /home/jack/repository:/home/repository \
-	faa7264cc3b5
+	05d1b981bb5b
      
 
 
@@ -342,7 +344,7 @@ docker run -it \
 提交push：工作目录 ——> 暂存区 ——> 本地仓库 ——> 远程仓库：文件必须一步一步的提交
 拉取pull：远程仓库 ——> 本地仓库 ——> 暂存区 ——> 工作目录：文件可以依次“检出”，也可以直接从远程仓库“检出”到工作目录
 
-![image-20210821201040414](/home/jack/文档/NoteBook/typora-user-images/image-20210821201040414.png)
+![image-20210821201040414](./typora-user-images/image-20210821201040414.png)
 
 ### 1.Git 使用前的配置命令
 
