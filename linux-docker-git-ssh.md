@@ -128,6 +128,48 @@ docker run -it \
 -v /home/jack/workspace:/home/workspace   //挂载宿主机文件夹
       
 
+### 带有GPU的容器初始化
+
+#### 步骤 1: 更新系统和安装依赖项
+
+首先，打开终端，并更新你的系统。这将确保你获得最新的软件包和依赖项。
+
+```
+sudo apt updatesudo apt upgrade
+```
+
+#### 步骤 2: 安装NVIDIA Container Toolkit
+
+NVIDIA Container Toolkit是一个用于在Docker容器中运行NVIDIA GPU加速应用程序的工具包。首先，你需要添加NVIDIA Container Toolkit的[存储](https://cloud.baidu.com/product/bos.html)库到你的系统中。
+
+```
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | sudo apt-key add -curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list | sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
+```
+
+然后，更新你的软件包列表并安装NVIDIA Container Toolkit。
+
+```
+sudo apt updatesudo apt install -y nvidia-container-toolkit
+```
+
+#### 步骤 3: 配置Docker以使用NVIDIA GPU
+
+安装完成后，你需要配置Docker以使用NVIDIA GPU。首先，重启Docker服务。
+
+```
+sudo systemctl restart docker
+```
+
+然后，验证Docker是否配置正确以使用NVIDIA GPU。运行以下命令：
+
+```
+docker run --gpus all nvidia/cuda:11.0-base nvidia-smi
+```
+
+如果一切顺利，你应该能看到NVIDIA GPU的详细信息。
+
+
+
 ## 3、容器 -> 镜像
 
 ```bash
@@ -421,7 +463,7 @@ git checkout <commit-hash> -- <file-path>  # 将文件恢复到工作目录的�
 
 ## 二、分支
 
-#### 1.分支细分
+### 1.分支细分
 
 1. 主分支（master）：第一次向 git 仓库提交更新记录时自动产生的一个分支。
 2. 开发分支（develop）：作为开发的分支，基于 master 分支创建。
