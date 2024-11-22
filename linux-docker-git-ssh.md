@@ -70,6 +70,42 @@ TensorRT ：
 
 # Docker
 
+## docker的网络代理
+
+https://blog.csdn.net/peng2hui1314/article/details/124267333
+
+```bash
+sudo mkdir -p /etc/systemd/system/docker.service.d
+```
+
+```bash
+sudo touch /etc/systemd/system/docker.service.d/http-proxy.conf
+```
+
+```bash
+vim /etc/systemd/system/docker.service.d/http-proxy.conf
+```
+
+```
+[Service]
+Environment="HTTP_PROXY=http://proxy.example.com:8080/"
+Environment="HTTPS_PROXY=http://proxy.example.com:8080/"
+Environment="NO_PROXY=localhost,127.0.0.1,.example.com"
+```
+
+
+
+【注】HTTP_PROXY 用于代理访问 http 请求，HTTPS_PROXY 用于代理访问 https 请求，如果想某个 IP或域名不走代理则配置到 NO_PROXY中。
+
+添加完成后，保存即可。刷新更改并重新启动 Docker
+
+```
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+
+
 ## 1、基础用法
 
 ```bash
@@ -126,11 +162,12 @@ docker run -it \
 以上四个参数的组合使得 Docker 容器可以访问主机的图形用户界面，容器中运行图形应用程序的窗口保证可以显示在主机的桌面上。
 
 -v /home/jack/workspace:/home/workspace   //挂载宿主机文件夹
-      
+
+
 
 ### 带有GPU的容器初始化
 
-#### 步骤 1: 更新系统和安装依赖项
+#### 1: 更新系统和安装依赖项
 
 首先，打开终端，并更新你的系统。这将确保你获得最新的软件包和依赖项。
 
@@ -138,7 +175,7 @@ docker run -it \
 sudo apt updatesudo apt upgrade
 ```
 
-#### 步骤 2: 安装NVIDIA Container Toolkit
+####  2: 安装NVIDIA Container Toolkit
 
 NVIDIA Container Toolkit是一个用于在Docker容器中运行NVIDIA GPU加速应用程序的工具包。首先，你需要添加NVIDIA Container Toolkit的[存储](https://cloud.baidu.com/product/bos.html)库到你的系统中。
 
@@ -152,7 +189,7 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)curl -s -L https://nvidia.g
 sudo apt updatesudo apt install -y nvidia-container-toolkit
 ```
 
-#### 步骤 3: 配置Docker以使用NVIDIA GPU
+####  3: 配置Docker以使用NVIDIA GPU
 
 安装完成后，你需要配置Docker以使用NVIDIA GPU。首先，重启Docker服务。
 
@@ -170,13 +207,7 @@ docker run --gpus all nvidia/cuda:11.0-base nvidia-smi
 
 
 
-## 3、容器 -> 镜像
-
-```bash
-docker commit <要commit的容器名> <要命名的镜像名:版本号>
-```
-
-## 4、容器、镜像的运行与保存
+## 3、容器、镜像的运行与保存
 
 ###        容器的启动与运行
 
@@ -203,9 +234,12 @@ docker save -o my_image.tar ubuntu:latest
 
 // 从一个 tar 文件中加载镜像
 docker load -i my_image.tar
+
+// 将容器保存为镜像
+docker commit <要commit的容器名> <要命名的镜像名:版本号>
 ```
 
-## 5、Docker登录
+## 4、Docker登录
 
 https://hub.docker.com/
 
@@ -234,7 +268,7 @@ docker pull ubuntu  # 拉取镜像,将官方 ubuntu 镜像下载到本地
 
 
 
-## 6、Dockerfile
+## 5、Dockerfile
 
 **Dockerfile 举例：**
 
@@ -355,6 +389,14 @@ docker build --build-arg APP_ENV=development -t my-dev-image .
 ```
 
 这样构建出的镜像中会使用 `APP_ENV=development`。
+
+## 6VScode的docker插件报错
+
+在配置完docker之后，尝试使用[vscode](https://zhida.zhihu.com/search?content_id=239404960&content_type=Article&match_order=1&q=vscode&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3MzI0MTc1MDgsInEiOiJ2c2NvZGUiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzk0MDQ5NjAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.LIfhVRt1bVPCrSTMkoXtD3a4XPASqWE41JvdlYHjHJ0&zhida_source=entity)的docker插件连接进容器时，docker插件无法正常显示容器信息，报错Error: permission denied while trying to connect to the Docker daemon socket at unix。这是因为vscode插件权限不足，可以为docker插件设置权限解决。
+
+```bash
+sudo chmod 666 /var/run/docker.sock
+```
 
 
 
@@ -608,6 +650,8 @@ ssh -T git@github.com
 
 # SSH
 
+https://blog.csdn.net/GitHub_miao/article/details/135050696
+
 ### 1. 安装 OpenSSH Server
 
 如果你在目标机器上没有安装 SSH 服务，可以通过以下命令安装 OpenSSH Server：
@@ -624,19 +668,17 @@ sudo apt install openssh-server
 ```
 sudo systemctl start ssh
 sudo systemctl enable ssh  # 使其在启动时自动运行
-```
 
-### 3. 检查 SSH 服务状态
+# 重启SSH服务使配置生效
+sudo systemctl restart ssh
 
-确认 SSH 服务是否已启动并正在运行：
-
-```
+# 检查 SSH 服务状态
 sudo systemctl status ssh
 ```
 
 你应该看到服务的状态是 "active (running)"。
 
-### 4. 防火墙设置
+### 3. 防火墙设置
 
 确保防火墙允许 SSH 连接。你可以使用以下命令来检查和修改防火墙设置：
 
@@ -645,19 +687,149 @@ sudo ufw allow ssh  # 允许SSH连接
 sudo ufw enable     # 启用防火墙（如果尚未启用）disable（这里工位电脑开启的话下使用conan下载不了github文件，所以就关闭了）
 ```
 
-### 5. 确认 SSH 端口和配置
-
-默认情况下，SSH 使用端口 22。你可以确认端口配置，确保没有其他服务占用这个端口。
+### 4. 确认 SSH 端口和配置
 
 SSH 配置文件通常位于 `/etc/ssh/sshd_config`。你可以检查这个文件，确保没有配置错误。
 
-### 6. 重启 SSH 服务
+```bash
+# 示例代码：编辑sshd_config文件
+sudo nano /etc/ssh/sshd_config
+```
+
+在配置文件中，可以设置SSH服务监听的端口、允许的用户、禁止root登录等。
+
+```bash
+# 示例代码：更改SSH服务端口
+Port 2222
+
+# 示例代码：禁止root用户直接登录
+PermitRootLogin no
+```
+
+默认情况下，SSH 使用端口 22。你可以确认端口配置，确保没有其他服务占用这个端口。
 
 如果你对 SSH 配置文件做了更改，记得重启 SSH 服务使其生效：
 
 ```bash
 sudo systemctl restart ssh
 ```
+
+
+
+### 5.配置SSH密钥对，登录服务端+配置客户端
+
+```bash
+# 示例代码：生成SSH密钥对
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/my_key
+```
+
+#### 5.1将公钥复制到目标服务器：
+
+```bash
+# 示例代码：复制公钥到目标服务器
+ssh-copy-id user@remote_server
+```
+
+手动复制：
+
+```bash
+# 示例代码：手动复制公钥到目标服务器
+cat ~/.ssh/my_key.pub | ssh user@remote_server 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+```
+
+#### 5.2 配置SSH客户端
+
+```bash
+# 示例代码：编辑SSH客户端配置文件
+nano ~/.ssh/config
+```
+
+```
+# 示例代码：为远程主机配置别名
+Host my_server
+    HostName remote_server
+    User user
+    Port 2222
+    IdentityFile ~/.ssh/my_key
+```
+
+#### 5.3使用SSH传输文件
+
+```bash
+# 示例代码：使用SCP传输文件到远程主机
+scp /path/to/local/file user@remote_server:/path/to/remote/directory
+```
+
+### 6.使用SSH隧道
+
+```bash
+# 示例代码：建立SSH隧道
+ssh -L 8080:localhost:80 user@remote_server
+```
+
+#### 6.1使用ProxyJump配置跳板主机
+
+```bash
+# 示例代码：配置ProxyJump跳板主机
+Host final_server
+    HostName final_server
+    User user
+    Port 2222
+    IdentityFile ~/.ssh/my_key
+
+Host jump_server
+    HostName jump_server
+    User user
+    Port 2222
+    IdentityFile ~/.ssh/my_key
+
+Host remote_server
+    HostName remote_server
+    User user
+    Port 2222
+    IdentityFile ~/.ssh/my_key
+    ProxyJump jump_server
+```
+
+#### 6.2使用SSH配置文件提高安全性
+
+```bash
+# 示例代码：设置SSH配置文件权限
+chmod 600 ~/.ssh/config
+```
+
+#### 6.3 SSH的相关配置
+
+/etc/ssh/sshd_config中：
+
+```bash
+# 在配置文件中添加Banner，以显示登录前的提示信息
+Banner /etc/ssh/banner_message
+
+# 确保密码登录被禁用，只允许公钥认证
+PasswordAuthentication no
+```
+
+#### 6.4限制SSH登录时间和IP范围
+
+```bash
+# 示例代码：限制SSH登录时间
+sudo nano /etc/security/time.conf
+
+# 添加：
+sshd;*;user;Al0800-1700
+```
+
+```bash
+# 示例代码：限制SSH登录IP范围
+sudo nano /etc/hosts.allow
+
+# 仅允许特定IP范围访问SSH
+# 添加：
+sshd : 192.168.1.0/24
+```
+
+等等。。。太多了，链接中的大部分还没用过。
 
 ### 7. 再次尝试连接
 
@@ -666,6 +838,8 @@ sudo systemctl restart ssh
 ```
 ssh user@XJTU_MIP  # 使用目标主机的用户名
 ```
+
+
 
 ### 8. VSCode上SSH连接
 
