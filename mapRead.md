@@ -163,7 +163,7 @@ mmcv-full
 
 ```
 
-## 配置终端bash
+# 配置终端bash
 
 ### 安装 `ncurses-term` 包
 
@@ -251,7 +251,7 @@ fi
 
 
 
-## `virtualenv`虚拟环境
+# `virtualenv`虚拟环境
 
 ```
 sudo apt install virtualenv
@@ -260,13 +260,15 @@ sudo apt install virtualenv
 ```
 # 创建新环境
 virtualenv (-p /usr/bin/python3.8） myenv
+# 创建一个干净的环境
+virtualenv --no-download --seeder=app-data --python=python3.8 myenv
 # 复制一个环境
 virtualenv-clone source_env newEnv
 ```
 
 ```
 # 激活环境
-source myenv/bin/activate
+source myenv/bin/activate  #(找activate程序在哪里)
 # 取消环境
 deactivate
 ```
@@ -276,15 +278,13 @@ pip install -r requirements.txt
 pip install --ignore-installed --no-deps -r requirements.txt
 ```
 
-
-
 ```bash
 which *** # 找软件路径 如python pip conda
 find / -type d -name "myfolder"
 -type f(file) # 可以使用通配符* 此外 b c p s l等
 ```
 
-#### 
+### PIP
 
 ```
 pip freeze > requirements.txt
@@ -296,9 +296,25 @@ pip install -r requirements.txt
 
 
 
+### 选择 `nvcc` 和 `cuda`：
+
+```
+sudo update-alternatives --config nvcc
+sudo update-alternatives --config cuda
+```
+
+| **命令**        | **影响范围**              | **目标文件/路径** |
+| --------------- | ------------------------- | ----------------- |
+| `--config nvcc` | 仅影响 CUDA 编译器 `nvcc` | `/usr/bin/nvcc`   |
+| `--config cuda` | 影响整个 CUDA 工具链环境  | `/usr/local/cuda` |
+
+
+
 # MMLAB框架学习
 
 https://v9999.blog.csdn.net/article/details/128486362
+
+
 
 
 
@@ -313,24 +329,25 @@ https://v9999.blog.csdn.net/article/details/128486362
 ```
 internalRoad 内部路？
 intersection 路口
-
 ```
 
-
-
-python /home/jack.leey/vma-road_centerline_network/tools/custom/generate_centerline_from_pn_anno_new.py -img_dir /map/jack.leey/test/dataset_send2label -json_dir /map/jack.leey/test/anno_json -valid_map_json /map/yu.fang/pn_env_render_dataset/validation_map_ids.json  -traj_dir none -out_dir /map/jack.leey/test/output_send2label
-
-
-
-
-
-
-
 ```bash
+ssh -i ~/.ssh/id_rsa jack.leey@172.22.205.164
+sudo apt update 
+sudo apt upgrade
 source ~/.bashrc
 vim ~/.bashrc
-source ~/ENVS/VMA/bin/activate
+vim ~/.pip/pip.conf 
+
+source VMAENV/local/bin/activate
+source ~/ENVS/
 /home/jack.leey/vma-road_centerline_network/tools/custom/generate_centerline_from_pn_anno_new.py 
+ll /usr/local
+nvcc -V
+which nvcc
+nvidia-smi
+deactivate
+
 ```
 
 ```python
@@ -342,11 +359,7 @@ python -c "import torch; print(torch.version.cuda) ; print(torch.cuda.is_availab
 
 ![image-20241126161827584](/home/nio/.config/Typora/typora-user-images/image-20241126161827584.png)
 
-##### 
-
 ![image-20241126161719090](/home/nio/.config/Typora/typora-user-images/image-20241126161719090.png)
-
-
 
 
 
@@ -364,34 +377,7 @@ annotationClass:有：
 
 RoadBoundaryArea、RoadSplit、intersectionPoint、one_wayStreet、two_wayStreet、internalPath、start、end、
 
+python ./generate.py -img_dir /map/jack.leey/test/dataset_send2label -json_dir /map/jack.leey/test/anno_json -valid_map_json /map/jack.leey/test/validation_map_ids.json -traj_dir none -out_dir /map/jack.leey/test/output_send2label 
 
+python ./generate.py -img_dir /map/jack.leey/test/dataset_send2label -json_dir /map/jack.leey/test/anno_json -valid_map_json /map/yu.fang/pn_env_render_dataset/validation_map_ids.json  -traj_dir none -out_dir /map/jack.leey/test/output_send2label
 
-
-
-颜色标注
-
-draw_polygon：蓝色(255, 0, 0)
-
-```python
-    if obj["annotationClass"] == "internalPath":
-        color = (255, 0, 0)
-    cv2.polylines(img, [pixel_points], isClosed=True, color=color, thickness=10)
-```
-
-draw_point：默认红色(0, 0, 255)，若intersectionPoint则深红色，给出的指示点为绿色
-
-```
-color = (0, 0, 255)
-    if obj["annotationClass"] == "intersectionPoint":
-        color = (255, 255, 255)
-    # CHANGE: 改成填充圆点
-    cv2.circle(img, tuple(pixel_points.tolist()), color=color, radius=50, thickness=-1)
-```
-
-draw_curve2:没找到
-
-
-
-
-
-python /map/jack.leey/test/generate.py -img_dir /map/jack.leey/test/dataset_send2label -json_dir /map/jack.leey/test/anno_json -valid_map_json /map/jack.leey/test/validation_map_ids.json -traj_dir none -out_dir /map/jack.leey/test/output_send2label 

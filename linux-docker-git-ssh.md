@@ -1,73 +1,3 @@
-# linux
-
-linux相关工具：
-
-```
-vim //编辑文档
-fim //查看图片
-grdit //图像化界面编辑文档
-boot-repair //修复引导区
-```
-
-动态库静态库：
-
-```
-linux下：
-.a 静态库  "archive" 文件
-.so 动态库 "shared object" 
-win下：
-.lib 静态库 “Library file”
-.dll 动态库 “Dynamic Link Library”
-```
-
-环境变量相关：
-
-```bash
-/etc/profile：此文件为系统的每个用户设置环境信息，当用户第一次登录时，该文件被执行，并从/etc/profile.d目录的配置文件中搜集shell的设置。
-/etc/bashrc：为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取。
-~/.bash_profile：每个用户都可使用该文件输入专用于自己使用的shell信息，当用户登录时，该文件仅仅执行一次!默认情况下，他设置一些环境变量，执行用户的.bashrc文件。是交互式login 方式进入 bash 运行的。
-~/.bashrc：该文件包含专用于你的bash shell的bash信息，当登录时以及每次打开新的shell时，该文件被读取。交互式 non-login 方式进入 bash 运行的。
-
-https://www.cnblogs.com/renyz/p/11351934.html
-（Linux进阶之环境变量文件/etc/profile、/etc/bashrc、/etc/environment）
-```
-
-深度学习部署相关：
-
-```bash
-# https://zhuanlan.zhihu.com/p/91334380 讲解
-nvcc --version  # cuda版本
-nvidia-smi  # 显示显卡信息
-watch -n 1 nvidia-smi  # 定时刷新这个信息
-```
-
-```
-YoLo的Darknet框架：
-.cfg 和 .weights 文件，一个是描述模型结构的配置文件（通常是 .cfg 文件），另一个是包含权重的二进制文件（通常是 .weights 文件）。
-
-PyTorch 框架：
-.pt 文件：PyTorch 模型文件，包含了 PyTorch 框架中的模型结构和权重。
-
-TensorFlow 框架：
-.pb 文件：TensorFlow 的 Protocol Buffer 文件，包含了 TensorFlow 框架中的模型结构和权重。
-
-MXNet 模型文件结构：
-.json 文件：存储模型的结构，包括网络的定义。
-.params 文件：存储模型的权重和参数。
-
-Caffe 模型文件结构：
-.prototxt 文件：存储模型的结构，包括网络的定义。
-.caffemodel 文件：存储模型的权重和参数。
-
-跨框架的模型交换格式，支持多个深度学习框架，如 PyTorch、TensorFlow、Caffe2 等。
-可以通过相应的导出函数进行模型转换：
-
-.onnx 文件：Open Neural Network Exchange 格式，用于跨框架的模型交换，可以从 PyTorch 或 TensorFlow 导出，然后通过 TensorRT 进行优化。
-
-TensorRT ：
-.plan 文件：通常由 ONNX 模型转换而来，通过 TensorRT 的 API 进行优化和生成。
-```
-
 # Docker
 
 ## docker的网络代理
@@ -883,13 +813,18 @@ ssh -i ~/.ssh/id_rsa -X jack.leey@172.23.53.162
 ### 使用 SCP 命令（安全复制）
 
 1. **从本地复制文件到远程服务器**，本地输入：
-   `scp /home/user/local.txt test@192.168.1.100:/home/test/`。
-   然后按照提示输入远程服务器对应的用户密码，即可开始传输文件。
+
+   ```
+   scp /home/user/local.txt test@192.168.1.100:/home/test/
+   ```
 
 2. **从远程服务器复制文件到本地**, 本地输入：
-   `scp test@192.168.1.100:/home/test/remote.txt /home/user/`
 
-   
+   ```
+   scp test@192.168.1.100:/home/test/remote.txt /home/user/
+   ```
+
+
 
 ### 8. 如果连接失败，可能的原因和解决方法
 
