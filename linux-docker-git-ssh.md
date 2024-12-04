@@ -815,7 +815,7 @@ ssh -i ~/.ssh/id_rsa -X jack.leey@172.23.53.162
 1. **从本地复制文件到远程服务器**，本地输入：
 
    ```
-   scp /home/user/local.txt test@192.168.1.100:/home/test/
+   scp /home/user/local.txt jack.leey@172.22.205.164:~/Repository
    ```
 
 2. **从远程服务器复制文件到本地**, 本地输入：
