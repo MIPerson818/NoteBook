@@ -129,9 +129,9 @@ git checkout -t origin/feature/yu.fang/vln_anno
 ### 3. 合并和变基
 
 ```bash
-git merge <branch-name>  // 合并分支
-git merge branch1 branch2    # 合并多个分支
-git rebase <branch-name> // 变基分支
+git merge <branch-name>   # 合并分支
+git merge branch1 branch2 # 合并多个分支，合并branch12到当前分支上
+git rebase <branch-name>  # 变基分支,将branch的更新同步到当前分支上
 ```
 
 ```bash
