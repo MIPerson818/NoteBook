@@ -7,7 +7,7 @@
 
 ## Gitlab Repo 管理
 
-- 开发人员提交代码到新的分支，验证功能无误后 rebase master 后提交 merge rfequest
+- 开发人员提交代码到新的分支，验证功能无误后 rebase master 后提交 merge request
 - 定期合并自己的 branch 到 master，暂定一个月一次
 - 如何确定哪些 code 需要 merge：对别人有帮助的 code
 - 每个 repo 的 maintainer 需要定期 release，写 changelog
@@ -68,6 +68,7 @@ git diff -cached   # 查看暂存区和最近一次提交之间的差异
 git log			   # 查看提交历史，将显示每个提交的哈希值、作者、日期和提交信息
 git log --oneline  # 查看简洁历史（单行显示）
 git log --graph -- pretty=oneline # 查看带有冲突解决的日志
+git log -p origin/main..main  # 查看本地 main 分支和远程 main 分支的差异
 ```
 
 ### 4. Git三板斧——添加、提交、拉取和推送 
