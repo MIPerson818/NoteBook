@@ -5,8 +5,7 @@
 | 基础 2 | git branch | git checkout      | git pull        | git merge  | git rebase | git stash | git tag  |
 | 进阶 1 | git fetch  | git filter-branch | git cherry-pick |            |            |           |          |
 
-## Gitlab Repo 管理 001
-
+## Gitlab Repo 管理 
 - 开发人员提交代码到新的分支，验证功能无误后 rebase master 后提交 merge request
 - 定期合并自己的 branch 到 master，暂定一个月一次
 - 如何确定哪些 code 需要 merge：对别人有帮助的 code
