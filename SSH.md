@@ -293,15 +293,15 @@ ssh -i ~/.ssh/id_rsa -X jack.leey@172.23.53.162
 
 2、点击远程资源管理器选项卡，选择远程（隧道/SSH）类别。
 
-![image-20241008121802387](/home/nio/文档/NoteBook/typora-user-images/image-20241008121802387.png)
+![image-20241008121802387](./assets/image-20241008121802387.png)
 
 3、点击SSH右边的齿轮案件，在中间上部分弹出的配置文件中点击第一个....config。
 
-![image-20241008121917066](/home/nio/文档/NoteBook/typora-user-images/image-20241008121917066.png)
+![image-20241008121917066](./assets/image-20241008121917066.png)
 
 4、在点进的config文件中输入以下内容。
 
-![image-20241008122030708](/home/nio/文档/NoteBook/typora-user-images/image-20241008122030708.png)
+![image-20241008122030708](./assets/image-20241008122030708.png)
 
 - Host是服务器主机的用户名
 

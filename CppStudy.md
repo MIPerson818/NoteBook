@@ -142,40 +142,40 @@ int main() {
 
 ### 一、C++基础
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/8765e333fb5038e494fdde7fbe94cc89.jpeg#pic_center)C++入门基础：https://blog.csdn.net/chenlong_cxy/article/details/116990901
+![](./assets/8765e333fb5038e494fdde7fbe94cc89.jpeg)C++入门基础：https://blog.csdn.net/chenlong_cxy/article/details/116990901
 
 
 
 ### 二、类和对象
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/173120144a6a674689eaacecef488d5f.jpeg#pic_center)C++类和对象（一）：https://blog.csdn.net/chenlong_cxy/article/details/117194830
+![](./assets/173120144a6a674689eaacecef488d5f.jpeg)C++类和对象（一）：https://blog.csdn.net/chenlong_cxy/article/details/117194830
 C++类和对象（二）：https://blog.csdn.net/chenlong_cxy/article/details/117307465
 C++类和对象（三)：https://blog.csdn.net/chenlong_cxy/article/details/117530132
 
 ### 三、C/C++内存管理
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/1077a7646a6ada606395f7d173804317.jpeg#pic_center)C/C++内存管理：https://blog.csdn.net/chenlong_cxy/article/details/117622502
+![](./assets/1077a7646a6ada606395f7d173804317.jpeg)C/C++内存管理：https://blog.csdn.net/chenlong_cxy/article/details/117622502
 
 ### 四、模板
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/9615307d465bcb646bca3b031a0faa83.jpeg#pic_center)C++模板初阶：https://blog.csdn.net/chenlong_cxy/article/details/117629686
+![](./assets/9615307d465bcb646bca3b031a0faa83.jpeg)C++模板初阶：https://blog.csdn.net/chenlong_cxy/article/details/117629686
 C++模板进阶：https://blog.csdn.net/chenlong_cxy/article/details/120284967
 
 ### 五、C++的IO流
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/72b28c47f399a05a18219c5f3b7bd6ae.jpeg#pic_center)C++的IO流：https://blog.csdn.net/chenlong_cxy/article/details/120338757
+![](./assets/72b28c47f399a05a18219c5f3b7bd6ae.jpeg)C++的IO流：https://blog.csdn.net/chenlong_cxy/article/details/120338757
 
 ### 六、继承
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/c2ae5734dc58b7219523799d13526a69.jpeg#pic_center)C++继承：https://blog.csdn.net/chenlong_cxy/article/details/120444215
+![](./assets/c2ae5734dc58b7219523799d13526a69.jpeg)C++继承：https://blog.csdn.net/chenlong_cxy/article/details/120444215
 
 ### 七、多态
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/4ff8a1a7adde2acd6a9749558e12a2c0.jpeg#pic_center)C++多态：https://blog.csdn.net/chenlong_cxy/article/details/120796570
+![](./assets/4ff8a1a7adde2acd6a9749558e12a2c0.jpeg)C++多态：https://blog.csdn.net/chenlong_cxy/article/details/120796570
 
 ### 八、C++11
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/63dd67ddcd827ff18760224ffcd78dc4.jpeg#pic_center)C++11入门基础：https://blog.csdn.net/chenlong_cxy/article/details/126690586
+![](./assets/63dd67ddcd827ff18760224ffcd78dc4.jpeg)C++11入门基础：https://blog.csdn.net/chenlong_cxy/article/details/126690586
 C++11右值引用和移动语义：https://blog.csdn.net/chenlong_cxy/article/details/126747523
 C++11类的新功能：https://blog.csdn.net/chenlong_cxy/article/details/126780535
 C++11可变参数模板：https://blog.csdn.net/chenlong_cxy/article/details/126807356
@@ -185,31 +185,31 @@ C++11线程库：https://blog.csdn.net/chenlong_cxy/article/details/126976346
 
 ### 九、异常
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/82e9960e0f7351f059788b4593f5a231.jpeg#pic_center)C++异常：https://blog.csdn.net/chenlong_cxy/article/details/127028110
+![](./assets/82e9960e0f7351f059788b4593f5a231.jpeg)C++异常：https://blog.csdn.net/chenlong_cxy/article/details/127028110
 
 
 
 ### 十、智能指针
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/a615b6a3a51116c8c32e8e3d259ac08f.jpeg#pic_center)C++智能指针：https://blog.csdn.net/chenlong_cxy/article/details/127100528
+![](./assets/a615b6a3a51116c8c32e8e3d259ac08f.jpeg)C++智能指针：https://blog.csdn.net/chenlong_cxy/article/details/127100528
 
 
 
 ### 十一、特殊类设计
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/af9c88fbdd241bd15e6c8717319d0188.jpeg#pic_center)特殊类设计：https://blog.csdn.net/chenlong_cxy/article/details/126603597
+![](./assets/af9c88fbdd241bd15e6c8717319d0188.jpeg)特殊类设计：https://blog.csdn.net/chenlong_cxy/article/details/126603597
 
 
 
 ### 十二、C++的类型转换
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/0b525e413cf90ba497c0b78a48da3327.jpeg#pic_center)C++的类型转换：https://blog.csdn.net/chenlong_cxy/article/details/127144522
+![](./assets/0b525e413cf90ba497c0b78a48da3327.jpeg)C++的类型转换：https://blog.csdn.net/chenlong_cxy/article/details/127144522
 
 
 
 ### 十三、STL
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/b93070bce075cd884b0b34531fd98ae2.jpeg#pic_center)STL —— string的介绍及使用：https://blog.csdn.net/chenlong_cxy/article/details/117885098
+![](./assets/b93070bce075cd884b0b34531fd98ae2.jpeg)STL —— string的介绍及使用：https://blog.csdn.net/chenlong_cxy/article/details/117885098
 STL —— string的模拟实现：https://blog.csdn.net/chenlong_cxy/article/details/118932318
 STL —— vector的介绍及使用：https://blog.csdn.net/chenlong_cxy/article/details/119212349
 STL —— vector的模拟实现：https://blog.csdn.net/chenlong_cxy/article/details/119254954
@@ -244,21 +244,21 @@ STL（Standard Template Library，标准模板库)  现然主要出现在C++中�
 - STL提供了多种容器，每种容器的实现原理各不相同，如果没有迭代器我们需要记住每一种容器中对象的访问方法，很显然这样会变得非常麻烦。
 - STL提供的许多容器中都实现了一个迭代器用于对容器中对象的访问，虽然每个容器中的迭代器的实现方式不一样，但是对于用户来说操作方法是一致的，也就说通过迭代器统一了对所有容器的访问方式。例如：访问当前元素的下一个元素我们可以通过迭代器自增进行访问。
 
-![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/377059f7bd6c470683ac1b33334db4f3.png)
+![](./assets/377059f7bd6c470683ac1b33334db4f3.png)
 
 
 
 ### 2、迭代器的本质
 
-- 迭代器是容器类中专门实现的一个访问容器中数据的内嵌类（类中类）![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/aeea766f9a3043bc9b5241753db60f06.png)
+- 迭代器是容器类中专门实现的一个访问容器中数据的内嵌类（类中类）![](./assets/aeea766f9a3043bc9b5241753db60f06.png)
 
   
 
-- 为了统一每个容器中对于迭代器的操作，在容器类中会使用typedef将迭代器类进行别名定义，别名为：**iterator**![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/fc10a214daeb477f90f33a6abfba84fd.png)
+- 为了统一每个容器中对于迭代器的操作，在容器类中会使用typedef将迭代器类进行别名定义，别名为：**iterator**![](./assets/fc10a214daeb477f90f33a6abfba84fd.png)
 
   
 
-- 迭代器类对容器中元素的访问方式：指针![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/091253e76fd940ffa1de03c6ea1ac902.png)
+- 迭代器类对容器中元素的访问方式：指针![](./assets/091253e76fd940ffa1de03c6ea1ac902.png)
 
   
 
@@ -283,11 +283,11 @@ vector<int>::iterator iter; //变量名为iter。
 
 vector容器的迭代器属于“**随机访问迭代器**”：**迭代器一次可以移动多个位置**
 
-![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/5b7d50ecdeaa42bb9c5c1a08999608ff.png)
+![](./assets/5b7d50ecdeaa42bb9c5c1a08999608ff.png)
 
 #### 3.1、begin和end操作
 
-每种容器都定义了一队命名为begin和end的函数，用于返回迭代器。如果容器中有元素的话，由begin返回的元素指向第一个元素。![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/d6801bd622f2404ba498e33ae0dd7c2a.png)
+每种容器都定义了一队命名为begin和end的函数，用于返回迭代器。如果容器中有元素的话，由begin返回的元素指向第一个元素。![](./assets/d6801bd622f2404ba498e33ae0dd7c2a.png)
 
 ```cpp
 vector<int>::iterator iter=v.begin(); //若v不为空，iter指向v[0]。
@@ -480,7 +480,7 @@ vector<int>::iterator iter; //变量名为iter。
 
 - 迭代器：
 
-![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/5b7d50ecdeaa42bb9c5c1a08999608ff.png)
+![](./assets/5b7d50ecdeaa42bb9c5c1a08999608ff-1740128986443-39.png)
 
 **迭代器使用举例：**
 
@@ -1079,11 +1079,11 @@ ump.find(2);       // O(1)
 
 特点对比：
 
-![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/3a3a96e6efcf48afb7af662c5abbf965.png)
+![](./assets/3a3a96e6efcf48afb7af662c5abbf965.png)
 
 底层实现：
 
-![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/67abc21b60da483ea5efbfb1b7f6f166.png)
+![](./assets/67abc21b60da483ea5efbfb1b7f6f166.png)
 
 prompt：将上述问题整理，给出array vector stack queue deque list set unordered_set map unorsered_map priority_queue 等，按照查询是否空、插入、删除、访问、应用场景、使其他特殊用法、用时注意的点、所有用法的代码示例。整理一份详细的知识点笔记
 
@@ -1380,7 +1380,7 @@ int main() {
 
 程序执行结果为：
 
-![image.png](https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/402/1630562108000/16e94d9983814c5e853eba008aa10b71.png)
+![](./assets/16e94d9983814c5e853eba008aa10b71.png)
 
 
 #### 3.7、lower_bound()
@@ -1907,7 +1907,7 @@ func_ptr f = [](int a) {
 f(1314);
 ```
 
-![image-20241004223930038](./typora-user-images/image-20241004223930038.png)
+![](./assets/image-20241004223930038-1740129028534-48.png)
 
 
 
@@ -1928,7 +1928,7 @@ f(1314);
 ## stastic静态字面量:
 
 
-![img](https://i-blog.csdnimg.cn/blog_migrate/6f40ae980fb42b3343969791610d2f33.png)
+![](./assets/6f40ae980fb42b3343969791610d2f33.png)
 
 （1）static关键字修饰局部变量不改变作用域，但是生命周期变长。
 
@@ -2000,11 +2000,11 @@ os=Linux
 
 ### 2. Conan库管理
 
-![image-20241008211842773](./typora-user-images/image-20241008211842773.png)
+![image-20241008211842773](./assets/image-20241008211842773.png)
 
 包保存的位置举例：
 
-![image-20241008211939856](./typora-user-images/image-20241008211939856.png)
+![image-20241008211939856](./assets/image-20241008211939856.png)
 
 选择包的版本时，你可以搜索已经存在的包，看看它们是否已经存在于某个远程仓库中：
 

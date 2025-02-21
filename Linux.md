@@ -221,9 +221,9 @@ print(torch.cuda.is_available())  # 检查是否能使用 GPU
 python -c "import torch; print(torch.version.cuda) ; print(torch.cuda.is_available()) "
 ```
 
-![image-20241126161827584](/home/nio/.config/Typora/typora-user-images/image-20241126161827584.png)
+![image-20241126161827584](./assets/image-20241126161827584.png)
 
-![image-20241126161719090](/home/nio/.config/Typora/typora-user-images/image-20241126161719090.png)
+![image-20241126161719090](./assets/image-20241126161719090.png)
 
 
 
