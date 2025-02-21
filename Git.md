@@ -7,7 +7,7 @@
 
 ## Gitlab Repo 管理
 
-- 开发人员提交代码到新的分支，验证功能无误后 rebase master 后提交 merge request
+- 开发人员提交代码到新的分支，验证功能无误后 rebase master 后提交 merge rfequest
 - 定期合并自己的 branch 到 master，暂定一个月一次
 - 如何确定哪些 code 需要 merge：对别人有帮助的 code
 - 每个 repo 的 maintainer 需要定期 release，写 changelog
@@ -35,21 +35,22 @@
 
 2. > 查询配置信息
 
-   1. 列出当前配置：`git config --list`;
-   2. 列出 repository 配置：`git config --local --list`;
-   3. 列出全局配置：`git config --global --list`;
-   4. 列出系统配置：`git config --system --list`;
+   1. 列出当前配置：`git config --list`，是所有config总和；
+   2. 列出 repository 配置：`git config --local --list`，保存在```项目/.git/config```中；
+   3. 列出全局配置：`git config --global --list`，保存在```~/.gitconfig```中（windows下修改 `C:\Users\用户\.gitconfig`）；
+   4. 列出系统配置：`git config --system --list`，保存在```/etc/gitconfig```中。
 
 3. > 其他配置
 
-   1. 配置解决冲突时使用哪种差异分析工具，比如要使用 vimdiff：`git config --global merge.tool vimdiff`;
-   2. 配置 git 命令输出为彩色的：`git config --global color.ui auto`;
-   3. 配置 git 使用的文本编辑器：`git config --global core.editor vi`;
-
-4. > 注：
-
-   1. 更改-->重复上述命令
-   2. 也可直接修改 `C:\Users\用户\.gitconfig`
+   1. 配置 git 命令输出为彩色的：`git config --global color.ui auto`;
+   2. 配置 git 使用的文本编辑器：`git config --global core.editor vi`;
+   3. 配置解决冲突时使用哪种差异分析工具，比如要使用 vimdiff：`git config --global merge.tool vimdiff`。vimdiff 实际上是 Vim 编辑器的 diff 模式，```git mergetool```命令启动合并工具，进入 `vimdiff` 界面后，你可以使用 Vim 的相关命令进行操作，比如：
+      - `do`（diff obtain）：从其他文件获取内容到当前文件。
+      - `dp`（diff put）：将当前文件的内容复制到其他文件。
+      - `z o`：查看被折叠的内容
+      - `z c`：重新折叠
+      - `:diffupdate`：更新差异标记。
+      - `:wqa`：保存所有文件并退出 `vimdiff`。
 
 ### 2. 初始化和克隆仓库
 
