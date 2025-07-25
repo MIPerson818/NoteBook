@@ -59,12 +59,11 @@ vim ~/.bashrc
 
 ```bash
 # 设置彩色终端
-if [ -t 1 ]; then
-    export TERM=xterm-256color
-fi
-
-# 设置命令提示符颜色（示例）
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+export LS_COLORS='di=01;34:ln=01;36:so=01;35:pi=01;33:ex=01;32:*.tar=01;31:*.tgz=01;31:*.zip=01;31'
+eval "$(dircolors -b)"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+export TERM=xterm-256color
 ```
 
 ### dircolors 配置
