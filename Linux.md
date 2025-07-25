@@ -59,11 +59,38 @@ vim ~/.bashrc
 
 ```bash
 # 设置彩色终端
+# 1. 设置 LS_COLORS 并启用 dircolors
 export LS_COLORS='di=01;34:ln=01;36:so=01;35:pi=01;33:ex=01;32:*.tar=01;31:*.tgz=01;31:*.zip=01;31'
 eval "$(dircolors -b)"
+
+# 2. 只在有终端时设置 TERM
+if [ -t 1 ]; then
+    export TERM=xterm-256color
+fi
+
+# 3. 给常用命令加上彩色参数
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-export TERM=xterm-256color
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+
+# 4. 设置彩色命令提示符（用户名@主机:路径$，绿色和蓝色）
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# 5. 让 man 手册也有颜色（可选）
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# 6. 让 git 输出有颜色（可选）
+if command -v git &>/dev/null; then
+    git config --global color.ui auto
+fi
 ```
 
 ### dircolors 配置
